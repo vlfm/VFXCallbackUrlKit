@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		763B5B9A1967D00A00C5E083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5B991967D00A00C5E083 /* Foundation.framework */; };
+		763B5B9C1967D00A00C5E083 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5B9B1967D00A00C5E083 /* CoreGraphics.framework */; };
+		763B5B9E1967D00A00C5E083 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5B9D1967D00A00C5E083 /* UIKit.framework */; };
+		763B5BA41967D00A00C5E083 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 763B5BA21967D00A00C5E083 /* InfoPlist.strings */; };
+		763B5BA61967D00A00C5E083 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BA51967D00A00C5E083 /* main.m */; };
+		763B5BAA1967D00A00C5E083 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BA91967D00A00C5E083 /* AppDelegate.m */; };
+		763B5BAC1967D00A00C5E083 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763B5BAB1967D00A00C5E083 /* Images.xcassets */; };
+		763B5BB31967D00A00C5E083 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5BB21967D00A00C5E083 /* XCTest.framework */; };
+		763B5BB41967D00A00C5E083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5B991967D00A00C5E083 /* Foundation.framework */; };
+		763B5BB51967D00A00C5E083 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763B5B9D1967D00A00C5E083 /* UIKit.framework */; };
+		763B5BBD1967D00A00C5E083 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 763B5BBB1967D00A00C5E083 /* InfoPlist.strings */; };
+		763B5BD41967D02500C5E083 /* VFXCallbackUrlCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BCB1967D02500C5E083 /* VFXCallbackUrlCompletion.m */; };
+		763B5BD51967D02500C5E083 /* VFXCallbackUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BCD1967D02500C5E083 /* VFXCallbackUrlHandler.m */; };
+		763B5BD61967D02500C5E083 /* VFXCallbackUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BCF1967D02500C5E083 /* VFXCallbackUrlManager.m */; };
+		763B5BD71967D02500C5E083 /* VFXCallbackUrlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BD11967D02500C5E083 /* VFXCallbackUrlParser.m */; };
+		763B5BD81967D02500C5E083 /* VFXCallbackUrlRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */; };
+		763B5BDB1967D46400C5E083 /* VFXCallbackUrlParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BDA1967D46400C5E083 /* VFXCallbackUrlParserTests.m */; };
+		763B5BDD1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BDC1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		763B5BB61967D00A00C5E083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 763B5B8E1967D00A00C5E083 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 763B5B951967D00A00C5E083;
+			remoteInfo = VFXCallbackUrlKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		763B5B961967D00A00C5E083 /* VFXCallbackUrlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VFXCallbackUrlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		763B5B991967D00A00C5E083 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		763B5B9B1967D00A00C5E083 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		763B5B9D1967D00A00C5E083 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		763B5BA11967D00A00C5E083 /* VFXCallbackUrlKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VFXCallbackUrlKit-Info.plist"; sourceTree = "<group>"; };
+		763B5BA31967D00A00C5E083 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		763B5BA51967D00A00C5E083 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		763B5BA71967D00A00C5E083 /* VFXCallbackUrlKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VFXCallbackUrlKit-Prefix.pch"; sourceTree = "<group>"; };
+		763B5BA81967D00A00C5E083 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		763B5BA91967D00A00C5E083 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		763B5BAB1967D00A00C5E083 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		763B5BB11967D00A00C5E083 /* VFXCallbackUrlKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VFXCallbackUrlKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		763B5BB21967D00A00C5E083 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		763B5BBA1967D00A00C5E083 /* VFXCallbackUrlKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VFXCallbackUrlKitTests-Info.plist"; sourceTree = "<group>"; };
+		763B5BBC1967D00A00C5E083 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		763B5BC91967D02500C5E083 /* VFXCallbackUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrl.h; sourceTree = "<group>"; };
+		763B5BCA1967D02500C5E083 /* VFXCallbackUrlCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlCompletion.h; sourceTree = "<group>"; };
+		763B5BCB1967D02500C5E083 /* VFXCallbackUrlCompletion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlCompletion.m; sourceTree = "<group>"; };
+		763B5BCC1967D02500C5E083 /* VFXCallbackUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlHandler.h; sourceTree = "<group>"; };
+		763B5BCD1967D02500C5E083 /* VFXCallbackUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlHandler.m; sourceTree = "<group>"; };
+		763B5BCE1967D02500C5E083 /* VFXCallbackUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlManager.h; sourceTree = "<group>"; };
+		763B5BCF1967D02500C5E083 /* VFXCallbackUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlManager.m; sourceTree = "<group>"; };
+		763B5BD01967D02500C5E083 /* VFXCallbackUrlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlParser.h; sourceTree = "<group>"; };
+		763B5BD11967D02500C5E083 /* VFXCallbackUrlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlParser.m; sourceTree = "<group>"; };
+		763B5BD21967D02500C5E083 /* VFXCallbackUrlRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlRequirements.h; sourceTree = "<group>"; };
+		763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlRequirements.m; sourceTree = "<group>"; };
+		763B5BDA1967D46400C5E083 /* VFXCallbackUrlParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlParserTests.m; sourceTree = "<group>"; };
+		763B5BDC1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlHandlerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		763B5B931967D00A00C5E083 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5B9C1967D00A00C5E083 /* CoreGraphics.framework in Frameworks */,
+				763B5B9E1967D00A00C5E083 /* UIKit.framework in Frameworks */,
+				763B5B9A1967D00A00C5E083 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		763B5BAE1967D00A00C5E083 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5BB31967D00A00C5E083 /* XCTest.framework in Frameworks */,
+				763B5BB51967D00A00C5E083 /* UIKit.framework in Frameworks */,
+				763B5BB41967D00A00C5E083 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		763B5B8D1967D00A00C5E083 = {
+			isa = PBXGroup;
+			children = (
+				763B5B9F1967D00A00C5E083 /* VFXCallbackUrlKit */,
+				763B5BB81967D00A00C5E083 /* VFXCallbackUrlKitTests */,
+				763B5B981967D00A00C5E083 /* Frameworks */,
+				763B5B971967D00A00C5E083 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		763B5B971967D00A00C5E083 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				763B5B961967D00A00C5E083 /* VFXCallbackUrlKit.app */,
+				763B5BB11967D00A00C5E083 /* VFXCallbackUrlKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		763B5B981967D00A00C5E083 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				763B5B991967D00A00C5E083 /* Foundation.framework */,
+				763B5B9B1967D00A00C5E083 /* CoreGraphics.framework */,
+				763B5B9D1967D00A00C5E083 /* UIKit.framework */,
+				763B5BB21967D00A00C5E083 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		763B5B9F1967D00A00C5E083 /* VFXCallbackUrlKit */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BA81967D00A00C5E083 /* AppDelegate.h */,
+				763B5BA91967D00A00C5E083 /* AppDelegate.m */,
+				763B5BAB1967D00A00C5E083 /* Images.xcassets */,
+				763B5BC81967D02500C5E083 /* src */,
+				763B5BA01967D00A00C5E083 /* Supporting Files */,
+			);
+			path = VFXCallbackUrlKit;
+			sourceTree = "<group>";
+		};
+		763B5BA01967D00A00C5E083 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BA11967D00A00C5E083 /* VFXCallbackUrlKit-Info.plist */,
+				763B5BA21967D00A00C5E083 /* InfoPlist.strings */,
+				763B5BA51967D00A00C5E083 /* main.m */,
+				763B5BA71967D00A00C5E083 /* VFXCallbackUrlKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		763B5BB81967D00A00C5E083 /* VFXCallbackUrlKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BB91967D00A00C5E083 /* Supporting Files */,
+				763B5BD91967D45100C5E083 /* test */,
+			);
+			path = VFXCallbackUrlKitTests;
+			sourceTree = "<group>";
+		};
+		763B5BB91967D00A00C5E083 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BBA1967D00A00C5E083 /* VFXCallbackUrlKitTests-Info.plist */,
+				763B5BBB1967D00A00C5E083 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		763B5BC81967D02500C5E083 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BC91967D02500C5E083 /* VFXCallbackUrl.h */,
+				763B5BCA1967D02500C5E083 /* VFXCallbackUrlCompletion.h */,
+				763B5BCB1967D02500C5E083 /* VFXCallbackUrlCompletion.m */,
+				763B5BCC1967D02500C5E083 /* VFXCallbackUrlHandler.h */,
+				763B5BCD1967D02500C5E083 /* VFXCallbackUrlHandler.m */,
+				763B5BCE1967D02500C5E083 /* VFXCallbackUrlManager.h */,
+				763B5BCF1967D02500C5E083 /* VFXCallbackUrlManager.m */,
+				763B5BD01967D02500C5E083 /* VFXCallbackUrlParser.h */,
+				763B5BD11967D02500C5E083 /* VFXCallbackUrlParser.m */,
+				763B5BD21967D02500C5E083 /* VFXCallbackUrlRequirements.h */,
+				763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		763B5BD91967D45100C5E083 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				763B5BDC1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m */,
+				763B5BDA1967D46400C5E083 /* VFXCallbackUrlParserTests.m */,
+			);
+			name = test;
+			path = ../../test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		763B5B951967D00A00C5E083 /* VFXCallbackUrlKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 763B5BC21967D00B00C5E083 /* Build configuration list for PBXNativeTarget "VFXCallbackUrlKit" */;
+			buildPhases = (
+				763B5B921967D00A00C5E083 /* Sources */,
+				763B5B931967D00A00C5E083 /* Frameworks */,
+				763B5B941967D00A00C5E083 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VFXCallbackUrlKit;
+			productName = VFXCallbackUrlKit;
+			productReference = 763B5B961967D00A00C5E083 /* VFXCallbackUrlKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		763B5BB01967D00A00C5E083 /* VFXCallbackUrlKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 763B5BC51967D00B00C5E083 /* Build configuration list for PBXNativeTarget "VFXCallbackUrlKitTests" */;
+			buildPhases = (
+				763B5BAD1967D00A00C5E083 /* Sources */,
+				763B5BAE1967D00A00C5E083 /* Frameworks */,
+				763B5BAF1967D00A00C5E083 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				763B5BB71967D00A00C5E083 /* PBXTargetDependency */,
+			);
+			name = VFXCallbackUrlKitTests;
+			productName = VFXCallbackUrlKitTests;
+			productReference = 763B5BB11967D00A00C5E083 /* VFXCallbackUrlKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		763B5B8E1967D00A00C5E083 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Valery Fomenko";
+				TargetAttributes = {
+					763B5BB01967D00A00C5E083 = {
+						TestTargetID = 763B5B951967D00A00C5E083;
+					};
+				};
+			};
+			buildConfigurationList = 763B5B911967D00A00C5E083 /* Build configuration list for PBXProject "VFXCallbackUrlKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 763B5B8D1967D00A00C5E083;
+			productRefGroup = 763B5B971967D00A00C5E083 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				763B5B951967D00A00C5E083 /* VFXCallbackUrlKit */,
+				763B5BB01967D00A00C5E083 /* VFXCallbackUrlKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		763B5B941967D00A00C5E083 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5BA41967D00A00C5E083 /* InfoPlist.strings in Resources */,
+				763B5BAC1967D00A00C5E083 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		763B5BAF1967D00A00C5E083 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5BBD1967D00A00C5E083 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		763B5B921967D00A00C5E083 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5BD71967D02500C5E083 /* VFXCallbackUrlParser.m in Sources */,
+				763B5BD51967D02500C5E083 /* VFXCallbackUrlHandler.m in Sources */,
+				763B5BAA1967D00A00C5E083 /* AppDelegate.m in Sources */,
+				763B5BD41967D02500C5E083 /* VFXCallbackUrlCompletion.m in Sources */,
+				763B5BA61967D00A00C5E083 /* main.m in Sources */,
+				763B5BD61967D02500C5E083 /* VFXCallbackUrlManager.m in Sources */,
+				763B5BD81967D02500C5E083 /* VFXCallbackUrlRequirements.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		763B5BAD1967D00A00C5E083 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763B5BDD1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m in Sources */,
+				763B5BDB1967D46400C5E083 /* VFXCallbackUrlParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		763B5BB71967D00A00C5E083 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 763B5B951967D00A00C5E083 /* VFXCallbackUrlKit */;
+			targetProxy = 763B5BB61967D00A00C5E083 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		763B5BA21967D00A00C5E083 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				763B5BA31967D00A00C5E083 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		763B5BBB1967D00A00C5E083 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				763B5BBC1967D00A00C5E083 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		763B5BC01967D00B00C5E083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		763B5BC11967D00B00C5E083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		763B5BC31967D00B00C5E083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
+				INFOPLIST_FILE = "VFXCallbackUrlKit/VFXCallbackUrlKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		763B5BC41967D00B00C5E083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
+				INFOPLIST_FILE = "VFXCallbackUrlKit/VFXCallbackUrlKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		763B5BC61967D00B00C5E083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VFXCallbackUrlKit.app/VFXCallbackUrlKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VFXCallbackUrlKitTests/VFXCallbackUrlKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		763B5BC71967D00B00C5E083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VFXCallbackUrlKit.app/VFXCallbackUrlKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
+				INFOPLIST_FILE = "VFXCallbackUrlKitTests/VFXCallbackUrlKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		763B5B911967D00A00C5E083 /* Build configuration list for PBXProject "VFXCallbackUrlKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763B5BC01967D00B00C5E083 /* Debug */,
+				763B5BC11967D00B00C5E083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		763B5BC21967D00B00C5E083 /* Build configuration list for PBXNativeTarget "VFXCallbackUrlKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763B5BC31967D00B00C5E083 /* Debug */,
+				763B5BC41967D00B00C5E083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		763B5BC51967D00B00C5E083 /* Build configuration list for PBXNativeTarget "VFXCallbackUrlKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763B5BC61967D00B00C5E083 /* Debug */,
+				763B5BC71967D00B00C5E083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 763B5B8E1967D00A00C5E083 /* Project object */;
+}
