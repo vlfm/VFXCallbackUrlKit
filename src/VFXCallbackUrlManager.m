@@ -7,6 +7,8 @@
 
 NSString * const VFXCallbackUrlErrorDomain = @"VFXCallbackUrlErrorDomain";
 
+NSString * const VFXCallbackUrlNotification = @"VFXCallbackUrlNotification";
+
 NSString * const VFXCallbackUrlXSource = @"x-source";
 NSString * const VFXCallbackUrlXSuccess = @"x-success";
 NSString * const VFXCallbackUrlXError = @"x-error";
@@ -73,5 +75,7 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
     
     return [[VFXCallbackUrlHandler alloc] initWithUrlRequirements:urlRequirements processingBlock:processingBlock];
 }
+
+//- (void)postNotificationWith
 
 @end

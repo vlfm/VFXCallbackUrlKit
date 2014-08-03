@@ -8,6 +8,8 @@ typedef NS_ENUM(NSInteger, VFXCallbackUrlError) {
     VFXCallbackUrlErrorMissingParameter
 };
 
+extern NSString * const VFXCallbackUrlNotification;
+
 extern NSString * const VFXCallbackUrlXSource;
 extern NSString * const VFXCallbackUrlXSuccess;
 extern NSString * const VFXCallbackUrlXError;

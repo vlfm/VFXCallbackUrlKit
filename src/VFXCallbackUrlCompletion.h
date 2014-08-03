@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface VFXCallbackUrlCompletion : NSObject
+@interface VFXCallbackUrlCompletion : NSObject // TODO remove
 
 @property (nonatomic, copy, readonly) NSString *successCallback;
 @property (nonatomic, copy, readonly) NSString *errorCallback;

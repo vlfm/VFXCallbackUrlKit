@@ -15,6 +15,7 @@
     
     XCTAssertEqualObjects(result.url, url, @"");
     XCTAssertEqualObjects(result.scheme, @"scheme", @"");
+    XCTAssertEqualObjects(result.host, @"x-callback-url", @"");
     XCTAssertEqualObjects(result.action, @"action", @"");
     XCTAssertEqualObjects(result.source, @"sourceValue", @"");
     XCTAssertEqualObjects(result.successCallback, @"successValue", @"");
@@ -34,6 +35,7 @@
     
     XCTAssertEqualObjects(result.url, url, @"");
     XCTAssertEqualObjects(result.scheme, @"scheme", @"");
+    XCTAssertEqualObjects(result.host, @"x-callback-url", @"");
     XCTAssertEqualObjects(result.action, @"action", @"");
     XCTAssertEqualObjects(result.source, @"sourceValue", @"");
     XCTAssertEqualObjects(result.successCallback, @"success://action", @"");

@@ -25,6 +25,12 @@
 		763B5BD81967D02500C5E083 /* VFXCallbackUrlRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */; };
 		763B5BDB1967D46400C5E083 /* VFXCallbackUrlParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BDA1967D46400C5E083 /* VFXCallbackUrlParserTests.m */; };
 		763B5BDD1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 763B5BDC1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m */; };
+		76B991A4198572A800DC92CE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B991A3198572A800DC92CE /* MainViewController.m */; };
+		76B991AC1985795000DC92CE /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B991AB1985795000DC92CE /* MainView.m */; };
+		76B991BA198D19E800DC92CE /* VFKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B991B9198D19E800DC92CE /* VFKeyboardObserver.m */; };
+		76B991C0198E6DFF00DC92CE /* VFXCallbackUrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B991BF198E6DFF00DC92CE /* VFXCallbackUrlRequest.m */; };
+		76DF1367197D43B7004E089B /* UrlBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF1366197D43B7004E089B /* UrlBuilderViewController.m */; };
+		76DF136A197D4424004E089B /* UrlBuilderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF1369197D4424004E089B /* UrlBuilderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +72,18 @@
 		763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlRequirements.m; sourceTree = "<group>"; };
 		763B5BDA1967D46400C5E083 /* VFXCallbackUrlParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlParserTests.m; sourceTree = "<group>"; };
 		763B5BDC1967F58300C5E083 /* VFXCallbackUrlHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlHandlerTests.m; sourceTree = "<group>"; };
+		76B991A2198572A800DC92CE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		76B991A3198572A800DC92CE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		76B991AA1985795000DC92CE /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		76B991AB1985795000DC92CE /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
+		76B991B8198D19E800DC92CE /* VFKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFKeyboardObserver.h; sourceTree = "<group>"; };
+		76B991B9198D19E800DC92CE /* VFKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFKeyboardObserver.m; sourceTree = "<group>"; };
+		76B991BE198E6DFF00DC92CE /* VFXCallbackUrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFXCallbackUrlRequest.h; sourceTree = "<group>"; };
+		76B991BF198E6DFF00DC92CE /* VFXCallbackUrlRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFXCallbackUrlRequest.m; sourceTree = "<group>"; };
+		76DF1365197D43B7004E089B /* UrlBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlBuilderViewController.h; sourceTree = "<group>"; };
+		76DF1366197D43B7004E089B /* UrlBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlBuilderViewController.m; sourceTree = "<group>"; };
+		76DF1368197D4424004E089B /* UrlBuilderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlBuilderView.h; sourceTree = "<group>"; };
+		76DF1369197D4424004E089B /* UrlBuilderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlBuilderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +145,7 @@
 			children = (
 				763B5BA81967D00A00C5E083 /* AppDelegate.h */,
 				763B5BA91967D00A00C5E083 /* AppDelegate.m */,
+				76DF1364197D43A0004E089B /* Application */,
 				763B5BAB1967D00A00C5E083 /* Images.xcassets */,
 				763B5BC81967D02500C5E083 /* src */,
 				763B5BA01967D00A00C5E083 /* Supporting Files */,
@@ -175,6 +194,8 @@
 				763B5BCF1967D02500C5E083 /* VFXCallbackUrlManager.m */,
 				763B5BD01967D02500C5E083 /* VFXCallbackUrlParser.h */,
 				763B5BD11967D02500C5E083 /* VFXCallbackUrlParser.m */,
+				76B991BE198E6DFF00DC92CE /* VFXCallbackUrlRequest.h */,
+				76B991BF198E6DFF00DC92CE /* VFXCallbackUrlRequest.m */,
 				763B5BD21967D02500C5E083 /* VFXCallbackUrlRequirements.h */,
 				763B5BD31967D02500C5E083 /* VFXCallbackUrlRequirements.m */,
 			);
@@ -190,6 +211,31 @@
 			);
 			name = test;
 			path = ../../test;
+			sourceTree = "<group>";
+		};
+		76B991B7198D19E800DC92CE /* VFKeyboardObserver */ = {
+			isa = PBXGroup;
+			children = (
+				76B991B8198D19E800DC92CE /* VFKeyboardObserver.h */,
+				76B991B9198D19E800DC92CE /* VFKeyboardObserver.m */,
+			);
+			path = VFKeyboardObserver;
+			sourceTree = "<group>";
+		};
+		76DF1364197D43A0004E089B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				76B991AA1985795000DC92CE /* MainView.h */,
+				76B991AB1985795000DC92CE /* MainView.m */,
+				76B991A2198572A800DC92CE /* MainViewController.h */,
+				76B991A3198572A800DC92CE /* MainViewController.m */,
+				76DF1368197D4424004E089B /* UrlBuilderView.h */,
+				76DF1369197D4424004E089B /* UrlBuilderView.m */,
+				76DF1365197D43B7004E089B /* UrlBuilderViewController.h */,
+				76DF1366197D43B7004E089B /* UrlBuilderViewController.m */,
+				76B991B7198D19E800DC92CE /* VFKeyboardObserver */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +333,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DF136A197D4424004E089B /* UrlBuilderView.m in Sources */,
 				763B5BD71967D02500C5E083 /* VFXCallbackUrlParser.m in Sources */,
 				763B5BD51967D02500C5E083 /* VFXCallbackUrlHandler.m in Sources */,
+				76B991AC1985795000DC92CE /* MainView.m in Sources */,
+				76B991A4198572A800DC92CE /* MainViewController.m in Sources */,
 				763B5BAA1967D00A00C5E083 /* AppDelegate.m in Sources */,
 				763B5BD41967D02500C5E083 /* VFXCallbackUrlCompletion.m in Sources */,
 				763B5BA61967D00A00C5E083 /* main.m in Sources */,
+				76B991BA198D19E800DC92CE /* VFKeyboardObserver.m in Sources */,
 				763B5BD61967D02500C5E083 /* VFXCallbackUrlManager.m in Sources */,
+				76DF1367197D43B7004E089B /* UrlBuilderViewController.m in Sources */,
+				76B991C0198E6DFF00DC92CE /* VFXCallbackUrlRequest.m in Sources */,
 				763B5BD81967D02500C5E083 /* VFXCallbackUrlRequirements.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

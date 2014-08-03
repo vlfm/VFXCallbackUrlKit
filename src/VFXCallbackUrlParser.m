@@ -6,6 +6,7 @@
 
 @property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSString *scheme;
+@property (nonatomic, copy) NSString *host;
 @property (nonatomic, copy) NSString *action;
 @property (nonatomic, copy) NSDictionary *parameters;
 @property (nonatomic, copy) NSString *source;
@@ -21,6 +22,7 @@
     VFXCallbackUrlParseResult *result = [VFXCallbackUrlParseResult new];
     result.url = url;
     result.scheme = url.scheme;
+    result.host = url.host;
     result.action = [self parseAction:url];
     
     NSDictionary *allParameters = [self parseQuery:url.query];
