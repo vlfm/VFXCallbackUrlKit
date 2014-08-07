@@ -1,4 +1,4 @@
-@class VFXCallbackUrlCompletion;
+@class VFXCallbackUrlRequest;
 @class VFXCallbackUrlRequirements;
 
 extern NSString * const VFXCallbackUrlErrorDomain;
@@ -15,5 +15,5 @@ extern NSString * const VFXCallbackUrlXSuccess;
 extern NSString * const VFXCallbackUrlXError;
 extern NSString * const VFXCallbackUrlXCancel;
 
-typedef void(^VFXCallbackUrlProcessingBlock)(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion);
+typedef void(^VFXCallbackUrlProcessingBlock)(VFXCallbackUrlRequest *request, NSArray *errors);
 typedef void(^VFXCallbackUrlRequirementsSetBlock)(VFXCallbackUrlRequirements**);

@@ -1,6 +1,6 @@
 #import "UrlBuilderView.h"
 
-#import "VFXCallbackUrlParser.h"
+#import "VFXCallbackUrlRequest.h"
 
 @interface LabeledTextField : UITextField
 
@@ -98,16 +98,16 @@
         return;
     }
     
-    VFXCallbackUrlParseResult *components = [VFXCallbackUrlParser parseUrl:url];
+    VFXCallbackUrlRequest *request = [VFXCallbackUrlRequest requestFromUrl:url];
     
-    _schemeTF.text = components.scheme;
-    _hostTF.text = components.host;
-    _actionTF.text = components.action;
-    _actionParametersTF.text = [VFXCallbackUrlParser formatEncodedQueryStringWithParameters:components.parameters];
-    _sourceTF.text = components.source;
-    _successCallbackTF.text = components.successCallback;
-    _errorCallbackTF.text = components.errorCallback;
-    _cancelCallbackTF.text = components.cancelCallback;
+    _schemeTF.text = request.scheme;
+    _hostTF.text = request.host;
+    _actionTF.text = request.action;
+    _actionParametersTF.text = [VFXCallbackUrlRequest formatEncodedQueryStringWithParameters:request.parameters];
+    _sourceTF.text = request.source;
+    _successCallbackTF.text = request.successCallback;
+    _errorCallbackTF.text = request.errorCallback;
+    _cancelCallbackTF.text = request.cancelCallback;
 }
 
 - (void)layoutSubviews {

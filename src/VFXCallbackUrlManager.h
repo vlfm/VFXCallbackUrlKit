@@ -2,7 +2,7 @@
 
 #import "VFXCallbackUrl.h"
 
-@class VFXCallbackUrlCompletion;
+@class VFXCallbackUrlRequest;
 @class VFXCallbackUrlRequirements;
 
 /**

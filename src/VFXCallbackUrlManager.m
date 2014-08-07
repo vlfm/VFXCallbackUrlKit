@@ -1,8 +1,7 @@
 #import "VFXCallbackUrlManager.h"
 
-#import "VFXCallbackUrlCompletion.h"
 #import "VFXCallbackUrlHandler.h"
-#import "VFXCallbackUrlParser.h"
+#import "VFXCallbackUrlRequest.h"
 #import "VFXCallbackUrlRequirements.h"
 
 NSString * const VFXCallbackUrlErrorDomain = @"VFXCallbackUrlErrorDomain";
@@ -34,8 +33,8 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
 }
 
 - (BOOL)handleUrl:(NSURL *)url error:(NSError **)error {
-    NSString *action = [VFXCallbackUrlParser parseAction:url];
-    VFXCallbackUrlHandler *handler = _handlers[action];
+    NSString *action = [VFXCallbackUrlRequest getActionFromUrl:url];
+    VFXCallbackUrlHandler *handler = (action != nil) ? _handlers[action] : nil;
     
     if (handler == nil) {
         if (error != NULL) {
@@ -53,7 +52,7 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
   processingBlock:(VFXCallbackUrlProcessingBlock)processingBlock
             error:(NSError **)error {
     
-    if ([action isEqualToString:[VFXCallbackUrlParser parseAction:url]] == NO) {
+    if ([action isEqualToString:[VFXCallbackUrlRequest getActionFromUrl:url]] == NO) {
         if (error != NULL) {
             *error = [NSError errorWithDomain:VFXCallbackUrlErrorDomain code:VFXCallbackUrlErrorUnknownAction userInfo:@{@"action": action}];
         }

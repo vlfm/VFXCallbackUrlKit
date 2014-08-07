@@ -42,7 +42,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     NSError *error = nil;
     
-    BOOL result = [_xCallbackUrlManager handleUrl:url action:@"123" requirements:nil processingBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    BOOL result = [_xCallbackUrlManager handleUrl:url action:@"123" requirements:nil processingBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
         NSLog(@"Processing block: after it completes, notification is posted");
         
