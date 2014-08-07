@@ -44,9 +44,9 @@
     _actionTF = addTextField(@"Action", @"");
     _actionParametersTF = addTextField(@"Action Parameters", @"");
     _sourceTF = addTextField(@"X-Source", @"VFXCallbackUrlKit");
-    _successCallbackTF = addTextField(@"X-Success", @"vf-x-callbackurl-kit://x-callback-url/");
-    _errorCallbackTF = addTextField(@"X-Error", @"vf-x-callbackurl-kit://x-callback-url/");
-    _cancelCallbackTF = addTextField(@"X-Cancel", @"vf-x-callbackurl-kit://x-callback-url/");
+    _successCallbackTF = addTextField(@"X-Success", @"vf-x-callbackurl-kit://x-callback-url/success");
+    _errorCallbackTF = addTextField(@"X-Error", @"vf-x-callbackurl-kit://x-callback-url/error");
+    _cancelCallbackTF = addTextField(@"X-Cancel", @"vf-x-callbackurl-kit://x-callback-url/cancel");
     
     self.backgroundColor = [UIColor whiteColor];
     
@@ -54,43 +54,14 @@
 }
 
 - (NSURL *)url {
-    NSMutableString * string = [NSMutableString new];
-    
-    BOOL (^append1)(UITextField *, NSString *) = ^ BOOL (UITextField *textField,
-                                                         NSString *suffix) {
-        if (textField.text.length > 0) {
-            [string appendString:textField.text];
-            [string appendString:suffix];
-            return YES;
-        }
-        return NO;
-    };
-    
-    BOOL (^append2)(NSString *, UITextField *, NSString *) = ^ BOOL (NSString *prefix,
-                                                                     UITextField *textField,
-                                                                     NSString *suffix) {
-        if (textField.text.length > 0) {
-            [string appendString:prefix];
-            [string appendString:textField.text];
-            [string appendString:suffix];
-            return YES;
-        }
-        return NO;
-    };
-    
-    // very simple url building
-    // may require some manual fixing
-    
-    append1(_schemeTF, @"://");
-    append1(_hostTF, @"/");
-    append1(_actionTF, @"?");
-    append1(_actionParametersTF, @"&");
-    append2(@"x-source=", _sourceTF, @"&");
-    append2(@"x-success=", _successCallbackTF, @"&");
-    append2(@"x-error=", _errorCallbackTF, @"&");
-    append2(@"x-cancel=",_cancelCallbackTF, @"&");
-    
-    return [NSURL URLWithString:string];
+    VFXCallbackUrlRequest *request = [VFXCallbackUrlRequest requestWithScheme:_schemeTF.text
+                                                                       action:_actionTF.text
+                                                                   parameters:[VFXCallbackUrlRequest parseQuery:_actionParametersTF.text]
+                                                                       source:_sourceTF.text
+                                                              successCallback:_successCallbackTF.text
+                                                                errorCallback:_errorCallbackTF.text
+                                                               cancelCallback:_cancelCallbackTF.text];
+    return request.asUrl;
 }
 
 - (void)setUrl:(NSURL *)url {

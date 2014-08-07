@@ -25,6 +25,7 @@
 
 + (NSString *)getActionFromUrl:(NSURL *)url;
 + (NSString *)formatEncodedQueryStringWithParameters:(NSDictionary *)parameters;
++ (NSDictionary *)parseQuery:(NSString *)query;
 
 - (BOOL)callSuccessWithParameters:(NSDictionary *)parameters;
 - (BOOL)callErrorWithParameters:(NSDictionary *)parameters;

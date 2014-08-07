@@ -79,7 +79,9 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
 
 - (VFXCallbackUrlProcessingBlock)notificationProcessingBlock:(VFXCallbackUrlProcessingBlock)processingBlock {
     return ^ (VFXCallbackUrlRequest *request, NSArray *errors) {
-        processingBlock(request, errors);
+        if (processingBlock) {
+            processingBlock(request, errors);
+        }
         
         NSNotification *n = [NSNotification notificationWithName:VFXCallbackUrlNotification object:request];
         [[NSNotificationCenter defaultCenter] postNotification:n];
