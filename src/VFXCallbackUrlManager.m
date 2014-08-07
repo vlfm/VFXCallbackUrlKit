@@ -28,7 +28,8 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
 - (void)registerAction:(NSString *)action requirements:(VFXCallbackUrlRequirementsSetBlock)setUrlRequirements
        processingBlock:(VFXCallbackUrlProcessingBlock)processingBlock {
     
-    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements processingBlock:processingBlock];
+    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements
+                                                           processingBlock:[self notificationProcessingBlock:processingBlock]];
     [_handlers setObject:handler forKey:action];
 }
 
@@ -59,7 +60,8 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
         return NO;
     }
     
-    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements processingBlock:processingBlock];
+    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements
+                                                           processingBlock:[self notificationProcessingBlock:processingBlock]];
     [handler handleUrl:url];
     return YES;
 }
@@ -75,6 +77,13 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
     return [[VFXCallbackUrlHandler alloc] initWithUrlRequirements:urlRequirements processingBlock:processingBlock];
 }
 
-//- (void)postNotificationWith
+- (VFXCallbackUrlProcessingBlock)notificationProcessingBlock:(VFXCallbackUrlProcessingBlock)processingBlock {
+    return ^ (VFXCallbackUrlRequest *request, NSArray *errors) {
+        processingBlock(request, errors);
+        
+        NSNotification *n = [NSNotification notificationWithName:VFXCallbackUrlNotification object:request];
+        [[NSNotificationCenter defaultCenter] postNotification:n];
+    };
+}
 
 @end

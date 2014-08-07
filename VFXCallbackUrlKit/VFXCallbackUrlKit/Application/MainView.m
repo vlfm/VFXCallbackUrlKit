@@ -68,6 +68,17 @@
     _urlTextView.text = [url absoluteString];
 }
 
+- (NSURL *)response {
+    if (_responseTextView.text.length > 0) {
+        return [NSURL URLWithString:_responseTextView.text];
+    }
+    return nil;
+}
+
+- (void)setResponse:(NSURL *)response {
+    _responseTextView.text = [response absoluteString];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     

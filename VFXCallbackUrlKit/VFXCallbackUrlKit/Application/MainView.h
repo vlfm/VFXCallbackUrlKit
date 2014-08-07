@@ -12,5 +12,6 @@
 
 @property (nonatomic, weak) id<MainViewDelegate> delegate;
 @property (nonatomic) NSURL *url;
+@property (nonatomic) NSURL *response;
 
 @end

@@ -278,6 +278,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Valery Fomenko";
 				TargetAttributes = {
+					763B5B951967D00A00C5E083 = {
+						DevelopmentTeam = MNS8R8287U;
+					};
 					763B5BB01967D00A00C5E083 = {
 						TestTargetID = 763B5B951967D00A00C5E083;
 					};
@@ -455,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
 				INFOPLIST_FILE = "VFXCallbackUrlKit/VFXCallbackUrlKit-Info.plist";
@@ -468,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VFXCallbackUrlKit/VFXCallbackUrlKit-Prefix.pch";
 				INFOPLIST_FILE = "VFXCallbackUrlKit/VFXCallbackUrlKit-Info.plist";

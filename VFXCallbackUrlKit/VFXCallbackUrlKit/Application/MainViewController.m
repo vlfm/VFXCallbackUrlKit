@@ -3,6 +3,7 @@
 #import "MainView.h"
 #import "UrlBuilderViewController.h"
 #import "VFXCallbackUrl.h"
+#import "VFXCallbackUrlRequest.h"
 
 @interface MainViewController () <MainViewDelegate>
 
@@ -74,7 +75,8 @@
 #pragma mark x-callback-url notification
 
 - (void)xCallbackUrlNotification:(NSNotification *)n {
-    NSLog(@"object: %@", n.object);
+    VFXCallbackUrlRequest *request = n.object;
+    _view.response = request.asUrl;
 }
 
 @end
