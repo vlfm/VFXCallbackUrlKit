@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 
-#import "VFXCallbackUrlCompletion.h"
 #import "VFXCallbackUrlHandler.h"
+#import "VFXCallbackUrlRequest.h"
 #import "VFXCallbackUrlRequirements.h"
 
 @interface VFXCallbackUrlHandlerTests : XCTestCase
@@ -23,17 +23,17 @@
 }
 
 - (void)testHandleUrl {
-    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:nil assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:nil assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertEqualObjects(source, @"sourceValue", @"");
-        XCTAssertEqual(parameters.allKeys.count, 2, @"");
-        XCTAssertEqual(parameters.allValues.count, 2, @"");
-        XCTAssertEqualObjects(parameters[@"keyA"], @"valueA", @"");
-        XCTAssertEqualObjects(parameters[@"keyB"], @"valueB", @"");
+        XCTAssertEqualObjects(request.source, @"sourceValue", @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 2, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 2, @"");
+        XCTAssertEqualObjects(request.parameters[@"keyA"], @"valueA", @"");
+        XCTAssertEqualObjects(request.parameters[@"keyB"], @"valueB", @"");
         XCTAssertEqual(errors.count, 0, @"");
-        XCTAssertEqualObjects(completion.successCallback, @"successValue", @"");
-        XCTAssertEqualObjects(completion.errorCallback, @"errorValue", @"");
-        XCTAssertEqualObjects(completion.cancelCallback, @"cancelValue", @"");
+        XCTAssertEqualObjects(request.successCallback, @"successValue", @"");
+        XCTAssertEqualObjects(request.errorCallback, @"errorValue", @"");
+        XCTAssertEqualObjects(request.cancelCallback, @"cancelValue", @"");
     }];
 }
 
@@ -41,16 +41,16 @@
     VFXCallbackUrlRequirements *requirements = [VFXCallbackUrlRequirements new];
     requirements.sourceRequired = YES;
     
-    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertNil(source, @"");
-        XCTAssertEqual(parameters.allKeys.count, 2, @"");
-        XCTAssertEqual(parameters.allValues.count, 2, @"");
-        XCTAssertEqualObjects(parameters[@"keyA"], @"valueA", @"");
-        XCTAssertEqualObjects(parameters[@"keyB"], @"valueB", @"");
-        XCTAssertEqualObjects(completion.successCallback, @"successValue", @"");
-        XCTAssertEqualObjects(completion.errorCallback, @"errorValue", @"");
-        XCTAssertEqualObjects(completion.cancelCallback, @"cancelValue", @"");
+        XCTAssertNil(request.source, @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 2, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 2, @"");
+        XCTAssertEqualObjects(request.parameters[@"keyA"], @"valueA", @"");
+        XCTAssertEqualObjects(request.parameters[@"keyB"], @"valueB", @"");
+        XCTAssertEqualObjects(request.successCallback, @"successValue", @"");
+        XCTAssertEqualObjects(request.errorCallback, @"errorValue", @"");
+        XCTAssertEqualObjects(request.cancelCallback, @"cancelValue", @"");
         
         XCTAssertEqual(errors.count, 1, @"");
         
@@ -65,16 +65,16 @@
     VFXCallbackUrlRequirements *requirements = [VFXCallbackUrlRequirements new];
     requirements.successCallbackRequired = YES;
     
-    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertEqualObjects(source, @"sourceValue", @"");
-        XCTAssertEqual(parameters.allKeys.count, 2, @"");
-        XCTAssertEqual(parameters.allValues.count, 2, @"");
-        XCTAssertEqualObjects(parameters[@"keyA"], @"valueA", @"");
-        XCTAssertEqualObjects(parameters[@"keyB"], @"valueB", @"");
-        XCTAssertNil(completion.successCallback, @"");
-        XCTAssertEqualObjects(completion.errorCallback, @"errorValue", @"");
-        XCTAssertEqualObjects(completion.cancelCallback, @"cancelValue", @"");
+        XCTAssertEqualObjects(request.source, @"sourceValue", @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 2, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 2, @"");
+        XCTAssertEqualObjects(request.parameters[@"keyA"], @"valueA", @"");
+        XCTAssertEqualObjects(request.parameters[@"keyB"], @"valueB", @"");
+        XCTAssertNil(request.successCallback, @"");
+        XCTAssertEqualObjects(request.errorCallback, @"errorValue", @"");
+        XCTAssertEqualObjects(request.cancelCallback, @"cancelValue", @"");
         
         XCTAssertEqual(errors.count, 1, @"");
         
@@ -89,16 +89,16 @@
     VFXCallbackUrlRequirements *requirements = [VFXCallbackUrlRequirements new];
     requirements.errorCallbackRequired = YES;
     
-    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertEqualObjects(source, @"sourceValue", @"");
-        XCTAssertEqual(parameters.allKeys.count, 2, @"");
-        XCTAssertEqual(parameters.allValues.count, 2, @"");
-        XCTAssertEqualObjects(parameters[@"keyA"], @"valueA", @"");
-        XCTAssertEqualObjects(parameters[@"keyB"], @"valueB", @"");
-        XCTAssertEqualObjects(completion.successCallback, @"successValue", @"");
-        XCTAssertNil(completion.errorCallback, @"");
-        XCTAssertEqualObjects(completion.cancelCallback, @"cancelValue", @"");
+        XCTAssertEqualObjects(request.source, @"sourceValue", @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 2, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 2, @"");
+        XCTAssertEqualObjects(request.parameters[@"keyA"], @"valueA", @"");
+        XCTAssertEqualObjects(request.parameters[@"keyB"], @"valueB", @"");
+        XCTAssertEqualObjects(request.successCallback, @"successValue", @"");
+        XCTAssertNil(request.errorCallback, @"");
+        XCTAssertEqualObjects(request.cancelCallback, @"cancelValue", @"");
         
         XCTAssertEqual(errors.count, 1, @"");
         
@@ -113,16 +113,16 @@
     VFXCallbackUrlRequirements *requirements = [VFXCallbackUrlRequirements new];
     requirements.cancelCallbackRequired = YES;
     
-    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-error=errorValue" requirements:requirements assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?keyA=valueA&keyB=valueB&x-source=sourceValue&x-success=successValue&x-error=errorValue" requirements:requirements assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertEqualObjects(source, @"sourceValue", @"");
-        XCTAssertEqual(parameters.allKeys.count, 2, @"");
-        XCTAssertEqual(parameters.allValues.count, 2, @"");
-        XCTAssertEqualObjects(parameters[@"keyA"], @"valueA", @"");
-        XCTAssertEqualObjects(parameters[@"keyB"], @"valueB", @"");
-        XCTAssertEqualObjects(completion.successCallback, @"successValue", @"");
-        XCTAssertEqualObjects(completion.errorCallback, @"errorValue", @"");
-        XCTAssertNil(completion.cancelCallback, @"");
+        XCTAssertEqualObjects(request.source, @"sourceValue", @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 2, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 2, @"");
+        XCTAssertEqualObjects(request.parameters[@"keyA"], @"valueA", @"");
+        XCTAssertEqualObjects(request.parameters[@"keyB"], @"valueB", @"");
+        XCTAssertEqualObjects(request.successCallback, @"successValue", @"");
+        XCTAssertEqualObjects(request.errorCallback, @"errorValue", @"");
+        XCTAssertNil(request.cancelCallback, @"");
         
         XCTAssertEqual(errors.count, 1, @"");
         
@@ -137,14 +137,14 @@
     VFXCallbackUrlRequirements *requirements = [VFXCallbackUrlRequirements new];
     requirements.requiredParameters = @[@"keyA", @"keyB"];
     
-    [self performTestWithURLString:@"scheme://x-callback-url/action?x-source=sourceValue&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
+    [self performTestWithURLString:@"scheme://x-callback-url/action?x-source=sourceValue&x-success=successValue&x-error=errorValue&x-cancel=cancelValue" requirements:requirements assertBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
         
-        XCTAssertEqualObjects(source, @"sourceValue", @"");
-        XCTAssertEqual(parameters.allKeys.count, 0, @"");
-        XCTAssertEqual(parameters.allValues.count, 0, @"");
-        XCTAssertEqualObjects(completion.successCallback, @"successValue", @"");
-        XCTAssertEqualObjects(completion.errorCallback, @"errorValue", @"");
-        XCTAssertEqualObjects(completion.cancelCallback, @"cancelValue", @"");
+        XCTAssertEqualObjects(request.source, @"sourceValue", @"");
+        XCTAssertEqual(request.parameters.allKeys.count, 0, @"");
+        XCTAssertEqual(request.parameters.allValues.count, 0, @"");
+        XCTAssertEqualObjects(request.successCallback, @"successValue", @"");
+        XCTAssertEqualObjects(request.errorCallback, @"errorValue", @"");
+        XCTAssertEqualObjects(request.cancelCallback, @"cancelValue", @"");
         
         XCTAssertEqual(errors.count, 2, @"");
         
@@ -163,8 +163,8 @@
 - (void)performTestWithURLString:(NSString *)urlString
                     requirements:(VFXCallbackUrlRequirements *)requirements
                      assertBlock:(VFXCallbackUrlProcessingBlock)assertBlock {
-    VFXCallbackUrlHandler *handler = [[VFXCallbackUrlHandler alloc] initWithUrlRequirements:requirements processingBlock:^(NSString *source, NSDictionary *parameters, NSArray *errors, VFXCallbackUrlCompletion *completion) {
-        assertBlock(source, parameters, errors, completion);
+    VFXCallbackUrlHandler *handler = [[VFXCallbackUrlHandler alloc] initWithUrlRequirements:requirements processingBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
+        assertBlock(request, errors);
         _processingCompleted = YES;
     }];
     

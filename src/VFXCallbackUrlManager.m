@@ -1,11 +1,12 @@
 #import "VFXCallbackUrlManager.h"
 
-#import "VFXCallbackUrlCompletion.h"
 #import "VFXCallbackUrlHandler.h"
-#import "VFXCallbackUrlParser.h"
+#import "VFXCallbackUrlRequest.h"
 #import "VFXCallbackUrlRequirements.h"
 
 NSString * const VFXCallbackUrlErrorDomain = @"VFXCallbackUrlErrorDomain";
+
+NSString * const VFXCallbackUrlNotification = @"VFXCallbackUrlNotification";
 
 NSString * const VFXCallbackUrlXSource = @"x-source";
 NSString * const VFXCallbackUrlXSuccess = @"x-success";
@@ -27,13 +28,14 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
 - (void)registerAction:(NSString *)action requirements:(VFXCallbackUrlRequirementsSetBlock)setUrlRequirements
        processingBlock:(VFXCallbackUrlProcessingBlock)processingBlock {
     
-    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements processingBlock:processingBlock];
+    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements
+                                                           processingBlock:[self notificationProcessingBlock:processingBlock]];
     [_handlers setObject:handler forKey:action];
 }
 
 - (BOOL)handleUrl:(NSURL *)url error:(NSError **)error {
-    NSString *action = [VFXCallbackUrlParser parseAction:url];
-    VFXCallbackUrlHandler *handler = _handlers[action];
+    NSString *action = [VFXCallbackUrlRequest getActionFromUrl:url];
+    VFXCallbackUrlHandler *handler = (action != nil) ? _handlers[action] : nil;
     
     if (handler == nil) {
         if (error != NULL) {
@@ -51,14 +53,15 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
   processingBlock:(VFXCallbackUrlProcessingBlock)processingBlock
             error:(NSError **)error {
     
-    if ([action isEqualToString:[VFXCallbackUrlParser parseAction:url]] == NO) {
+    if ([action isEqualToString:[VFXCallbackUrlRequest getActionFromUrl:url]] == NO) {
         if (error != NULL) {
             *error = [NSError errorWithDomain:VFXCallbackUrlErrorDomain code:VFXCallbackUrlErrorUnknownAction userInfo:@{@"action": action}];
         }
         return NO;
     }
     
-    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements processingBlock:processingBlock];
+    VFXCallbackUrlHandler *handler = [[self class] handlerWithRequirements:setUrlRequirements
+                                                           processingBlock:[self notificationProcessingBlock:processingBlock]];
     [handler handleUrl:url];
     return YES;
 }
@@ -72,6 +75,17 @@ NSString * const VFXCallbackUrlXCancel = @"x-cancel";
     }
     
     return [[VFXCallbackUrlHandler alloc] initWithUrlRequirements:urlRequirements processingBlock:processingBlock];
+}
+
+- (VFXCallbackUrlProcessingBlock)notificationProcessingBlock:(VFXCallbackUrlProcessingBlock)processingBlock {
+    return ^ (VFXCallbackUrlRequest *request, NSArray *errors) {
+        if (processingBlock) {
+            processingBlock(request, errors);
+        }
+        
+        NSNotification *n = [NSNotification notificationWithName:VFXCallbackUrlNotification object:request];
+        [[NSNotificationCenter defaultCenter] postNotification:n];
+    };
 }
 
 @end
