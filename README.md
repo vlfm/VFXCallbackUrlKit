@@ -87,7 +87,7 @@ xCallbackUrlManager = [[VFXCallbackUrlManager alloc] initWithScheme:@"your schem
 
 ```
 
-Simplied incoming requests handling
+Simplified request handling
 =
 
 If you support only one action, or sure about what action is going to be handled, you can process url without action registration:
