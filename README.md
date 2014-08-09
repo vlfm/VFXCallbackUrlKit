@@ -3,7 +3,7 @@ VFXCallbackUrlKit
 
 A library for iOs interapp communication using [x-callback-url](http://x-callback-url.com) specification.
 
-How to send request (call other app url)
+How to send request
 =
 
 Create ```VFXCallbackUrlRequest``` object:
@@ -21,7 +21,7 @@ Get and open ```NSURL``` from request object:
 [[UIApplication sharedApplication] openURL:request.asUrl];
 ```
 
-How to handle request (incoming url with your app's scheme)
+How to handle request
 =
 * Create and configure a ```VFXCallbackUrlManager``` object.
    This object will handle incoming requests.
