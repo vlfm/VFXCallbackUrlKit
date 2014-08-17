@@ -100,3 +100,17 @@ BOOL result = [xCallbackUrlManager handleUrl:url action:@"an action"
 ```
 
 ```VFXCallbackUrlNotification``` is also posted in case of successful handling (after processing block finishes).
+
+Callbacks for incoming request
+=
+
+```VFXCallbackUrlRequest``` has methods to invoke all callbacks:
+```objective-c
+[xCallbackUrlManager registerAction:@"an action" requirements:nil
+                    processingBlock:^(VFXCallbackUrlRequest *request, NSArray *errors) {
+    //...
+    [request callSuccessWithParameters:@{@"parameter": @"value"}];
+    // or [request callErrorWithParameters:@{@"errorCode": @(123)}];
+    // or [request callCancelWithParameters:nil];
+}];
+```
