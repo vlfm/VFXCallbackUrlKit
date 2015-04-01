@@ -18,6 +18,8 @@
 
 #import "VFKeyboardObserver.h"
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
                                               NSTimeInterval animationDuration,
                                               UIViewAnimationCurve animationCurve);
@@ -245,14 +247,19 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
 }
 
 NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperties) {
-    return [NSString stringWithFormat:@"VFKeyboardProperties (frame: %@; animationDuration:%f; animationCurve:%d)",
+    return [NSString stringWithFormat:@"VFKeyboardProperties (frame: %@; animationDuration:%f; animationCurve:%ld)",
             NSStringFromCGRect(keyboardProperties.frame),
             keyboardProperties.animationDuration,
-            keyboardProperties.animationCurve];
+            (long)keyboardProperties.animationCurve];
 }
 
 CGRect KeyboardFrameInWindowCoordinatesConsideringOrientation(CGRect keyboardFrame) {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+        return keyboardFrame;
+    }
+    
     CGRect windowBounds = [UIApplication sharedApplication].keyWindow.bounds;
+    
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
     switch (orientation) {
@@ -269,11 +276,17 @@ CGRect KeyboardFrameInWindowCoordinatesConsideringOrientation(CGRect keyboardFra
             keyboardFrame.origin.y = windowBounds.size.height - keyboardFrame.size.height;
             return keyboardFrame;
         }
+        default: return keyboardFrame;
     }
 }
 
 CGRect ViewFrameInWindowCoordinates(UIView *view) {
     CGRect viewFrame = [view convertRect:view.bounds toView:nil];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+        return viewFrame;
+    }
+    
     CGRect windowBounds = [UIApplication sharedApplication].keyWindow.bounds;
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -295,5 +308,6 @@ CGRect ViewFrameInWindowCoordinates(UIView *view) {
             viewFrame.origin.y = windowBounds.size.height - viewFrame.origin.y - viewFrame.size.height;
             return viewFrame;
         }
+        default: return viewFrame;
     }
 }
